@@ -2,20 +2,13 @@ package action;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
-
 public abstract class ActionTest {
 
     protected ForeseableActionMock createForeseableAction(int timeToEnd) {
         return new ForeseableActionMock(timeToEnd);
     }
 
-    protected SchedulerMock createScheduler() {
-        return new SchedulerMock();
-    }
-
-    @Test
-    protected void onlyOneValidStateAtEachMoment(Action action) {
+    public void onlyOneValidStateAtEachMoment1(Action action) {
         assertTrue(action.isReady());
         assertFalse(action.isInProgress());
         assertFalse(action.isFinished());

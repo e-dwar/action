@@ -26,8 +26,8 @@ public class ForeseableActionTest extends ActionTest {
     }
 
 	@Test
-    protected void onlyOneValidStateAtEachMoment(Action action) {
-        super.onlyOneValidStateAtEachMoment(createForeseableAction(10));
+    public void onlyOneValidStateAtEachMoment() {
+        this.onlyOneValidStateAtEachMoment1(createForeseableAction(10));
     }
 
 }

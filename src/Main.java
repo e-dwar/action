@@ -8,8 +8,8 @@ public class Main {
         ForeseableAction a2 = new ForeseableActionMock(2);
         ForeseableAction a3 = new ForeseableActionMock(2);
         ForeseableAction a4 = new ForeseableActionMock(2);
-        Scheduler s1 = new SchedulerMock();
-        Scheduler s2 = new SchedulerMock();
+        Scheduler s1 = new SequentialScheduler();
+        Scheduler s2 = new SequentialScheduler();
         s1.addAction(a1);
         s1.addAction(a2);
         s2.addAction(a3);

@@ -6,8 +6,8 @@ import action.*;
 
 public class MainTest {
 
-    private SchedulerMock createScheduler() {
-        return new SchedulerMock();
+    private SequentialScheduler createScheduler() {
+        return new SequentialScheduler();
     }
 
     private ForeseableActionMock createForeseableAction(int timeToEnd) {
@@ -37,7 +37,7 @@ public class MainTest {
     public void scheduler() {
         ForeseableActionMock action1 = createForeseableAction(2);
         ForeseableActionMock action2 = createForeseableAction(1);
-        SchedulerMock scheduler = createScheduler();
+        SequentialScheduler scheduler = createScheduler();
         scheduler.addAction(action1);
         scheduler.addAction(action2);
         assertTrue(action1.isReady());
@@ -56,8 +56,8 @@ public class MainTest {
     @Test
     public void schedulerWithScheduler() {
         ForeseableActionMock action1 = createForeseableAction(2);
-        SchedulerMock subScheduler = createScheduler();
-        SchedulerMock scheduler = createScheduler();
+        SequentialScheduler subScheduler = createScheduler();
+        SequentialScheduler scheduler = createScheduler();
         subScheduler.addAction(action1);
         scheduler.addAction(subScheduler);
         assertTrue(action1.isReady());
@@ -77,7 +77,7 @@ public class MainTest {
 
     @Test
     public void onlyOneValidStateAtEachMomentForScheduler() {
-        SchedulerMock scheduler = createScheduler();
+    	SequentialScheduler scheduler = createScheduler();
         scheduler.addAction(createForeseableAction(1));
         onlyOneValidStateAtEachMoment(scheduler);
     }

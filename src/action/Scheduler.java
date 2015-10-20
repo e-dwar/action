@@ -24,14 +24,7 @@ public abstract class Scheduler extends Action {
         return isInitialized && !isReady() && actions.isEmpty();
     }
 
-    public void doStep () {
-        isReady = false;
-        Action nextAction = actions.get(0);
-        nextAction.doStep();
-        if (nextAction.isFinished()) {
-            actions.remove(0);
-        }
-    }
+    public abstract void doStep ();
 
     public void addAction (Action subAction) {
         isInitialized = true;
