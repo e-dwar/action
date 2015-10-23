@@ -18,7 +18,8 @@ public class ForeseableAction extends Action {
         return remainingTime <= 0;
     }
 
-    public void doStep () {
+    public void doStep () throws ActionFinishedException {
+    	super.doStep();
         remainingTime--;
     }
 }

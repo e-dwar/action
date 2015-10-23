@@ -2,7 +2,7 @@ import action.*;
 
 public class Main {
 
-    public static void main (String[] args) {
+    public static void main (String[] args) throws ActionFinishedException {
         int i = 1;
         ForeseableAction a1 = new ForeseableAction(2);
         ForeseableAction a2 = new ForeseableAction(2);

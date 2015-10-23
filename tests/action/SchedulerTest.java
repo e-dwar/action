@@ -19,16 +19,21 @@ public abstract class SchedulerTest extends ActionTest {
 		scheduler.addAction(action);
 		return scheduler;
 	}
+
+	@Override
+	protected Action createAction() {
+		return createScheduler();
+	}
 	
 	@Test
-    public void onlyOneValidStateAtEachMoment() {
+    public void onlyOneValidStateAtEachMoment() throws ActionFinishedException {
 		Scheduler scheduler = createScheduler();
         scheduler.addAction(createForeseableAction(1));
         this.onlyOneValidStateAtEachMoment1(scheduler);
     }
 	
 	@Test
-	public void with1OneStepAction () {
+	public void with1OneStepAction () throws ActionFinishedException {
 		OneStepAction action1 = new OneStepAction();
 		Scheduler scheduler = createScheduler(action1);
         assertFalse(scheduler.isFinished());
@@ -39,7 +44,7 @@ public abstract class SchedulerTest extends ActionTest {
 	}
 
 	@Test
-	public void scheduler () {
+	public void scheduler () throws ActionFinishedException {
         action1 = createForeseableAction(2);
         action2 = createForeseableAction(1);
         scheduler = createScheduler();
@@ -65,7 +70,7 @@ public abstract class SchedulerTest extends ActionTest {
 	}
 
 	@Test
-    public void schedulerWithScheduler() {
+    public void schedulerWithScheduler() throws ActionFinishedException {
         action1 = createForeseableAction(2);
         action2 = createForeseableAction(1);
         subScheduler = createScheduler();

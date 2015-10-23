@@ -7,7 +7,7 @@ import org.junit.Test;
 public class ForeseableActionTest extends ActionTest {
 
     @Test
-    public void foreseeableAction() {
+    public void foreseeableAction() throws ActionFinishedException {
         ForeseableAction action = createForeseableAction(2);
         // 2 steps remaining
         assertTrue(action.isReady());
@@ -26,8 +26,14 @@ public class ForeseableActionTest extends ActionTest {
     }
 
 	@Test
-    public void onlyOneValidStateAtEachMoment() {
+    public void onlyOneValidStateAtEachMoment() throws ActionFinishedException {
         this.onlyOneValidStateAtEachMoment1(createForeseableAction(10));
     }
+
+	@Override
+	protected Action createAction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

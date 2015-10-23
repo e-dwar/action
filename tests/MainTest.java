@@ -15,7 +15,7 @@ public class MainTest {
     }
 
     @Test
-    public void foreseeableAction() {
+    public void foreseeableAction() throws ActionFinishedException {
         ForeseableAction action = createForeseableAction(2);
         // 2 steps remaining
         assertTrue(action.isReady());
@@ -34,7 +34,7 @@ public class MainTest {
     }
 
     @Test
-    public void scheduler() {
+    public void scheduler() throws ActionFinishedException {
         ForeseableAction action1 = createForeseableAction(2);
         ForeseableAction action2 = createForeseableAction(1);
         SequentialScheduler scheduler = createScheduler();
@@ -54,7 +54,7 @@ public class MainTest {
     }
 
     @Test
-    public void schedulerWithScheduler() {
+    public void schedulerWithScheduler() throws ActionFinishedException {
         ForeseableAction action1 = createForeseableAction(2);
         SequentialScheduler subScheduler = createScheduler();
         SequentialScheduler scheduler = createScheduler();
@@ -71,18 +71,18 @@ public class MainTest {
     }
 
     @Test
-    public void onlyOneValidStateAtEachMomentForForeseebleAction() {
+    public void onlyOneValidStateAtEachMomentForForeseebleAction() throws ActionFinishedException {
         onlyOneValidStateAtEachMoment(createForeseableAction(10));
     }
 
     @Test
-    public void onlyOneValidStateAtEachMomentForScheduler() {
+    public void onlyOneValidStateAtEachMomentForScheduler() throws ActionFinishedException {
     	SequentialScheduler scheduler = createScheduler();
         scheduler.addAction(createForeseableAction(1));
         onlyOneValidStateAtEachMoment(scheduler);
     }
 
-    protected void onlyOneValidStateAtEachMoment(Action action) {
+    protected void onlyOneValidStateAtEachMoment(Action action) throws ActionFinishedException {
         assertTrue(action.isReady());
         assertFalse(action.isInProgress());
         assertFalse(action.isFinished());
