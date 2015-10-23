@@ -8,7 +8,7 @@ public class ForeseableActionTest extends ActionTest {
 
     @Test
     public void foreseeableAction() {
-        ForeseableActionMock action = createForeseableAction(2);
+        ForeseableAction action = createForeseableAction(2);
         // 2 steps remaining
         assertTrue(action.isReady());
         assertFalse(action.isInProgress());

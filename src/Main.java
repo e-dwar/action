@@ -4,10 +4,10 @@ public class Main {
 
     public static void main (String[] args) {
         int i = 1;
-        ForeseableAction a1 = new ForeseableActionMock(2);
-        ForeseableAction a2 = new ForeseableActionMock(2);
-        ForeseableAction a3 = new ForeseableActionMock(2);
-        ForeseableAction a4 = new ForeseableActionMock(2);
+        ForeseableAction a1 = new ForeseableAction(2);
+        ForeseableAction a2 = new ForeseableAction(2);
+        ForeseableAction a3 = new ForeseableAction(2);
+        ForeseableAction a4 = new ForeseableAction(2);
         Scheduler s1 = new SequentialScheduler();
         Scheduler s2 = new SequentialScheduler();
         s1.addAction(a1);

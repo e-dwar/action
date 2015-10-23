@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 public abstract class ActionTest {
 
-    protected ForeseableActionMock createForeseableAction(int timeToEnd) {
-        return new ForeseableActionMock(timeToEnd);
+    protected ForeseableAction createForeseableAction(int timeToEnd) {
+        return new ForeseableAction(timeToEnd);
     }
 
     public void onlyOneValidStateAtEachMoment1(Action action) {

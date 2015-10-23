@@ -10,13 +10,13 @@ public class MainTest {
         return new SequentialScheduler();
     }
 
-    private ForeseableActionMock createForeseableAction(int timeToEnd) {
-        return new ForeseableActionMock(timeToEnd);
+    private ForeseableAction createForeseableAction(int timeToEnd) {
+        return new ForeseableAction(timeToEnd);
     }
 
     @Test
     public void foreseeableAction() {
-        ForeseableActionMock action = createForeseableAction(2);
+        ForeseableAction action = createForeseableAction(2);
         // 2 steps remaining
         assertTrue(action.isReady());
         assertFalse(action.isInProgress());
@@ -35,8 +35,8 @@ public class MainTest {
 
     @Test
     public void scheduler() {
-        ForeseableActionMock action1 = createForeseableAction(2);
-        ForeseableActionMock action2 = createForeseableAction(1);
+        ForeseableAction action1 = createForeseableAction(2);
+        ForeseableAction action2 = createForeseableAction(1);
         SequentialScheduler scheduler = createScheduler();
         scheduler.addAction(action1);
         scheduler.addAction(action2);
@@ -55,7 +55,7 @@ public class MainTest {
 
     @Test
     public void schedulerWithScheduler() {
-        ForeseableActionMock action1 = createForeseableAction(2);
+        ForeseableAction action1 = createForeseableAction(2);
         SequentialScheduler subScheduler = createScheduler();
         SequentialScheduler scheduler = createScheduler();
         subScheduler.addAction(action1);

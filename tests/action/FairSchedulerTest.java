@@ -13,8 +13,8 @@ public class FairSchedulerTest extends SchedulerTest {
 
     @Test
     public void scheduler() {
-        ForeseableActionMock action1 = createForeseableAction(2);
-        ForeseableActionMock action2 = createForeseableAction(1);
+        ForeseableAction action1 = createForeseableAction(2);
+        ForeseableAction action2 = createForeseableAction(1);
         Scheduler scheduler = createScheduler();
         scheduler.addAction(action1);
         scheduler.addAction(action2);
@@ -33,8 +33,8 @@ public class FairSchedulerTest extends SchedulerTest {
 
     @Test
     public void schedulerWithScheduler() {
-        ForeseableActionMock action1 = createForeseableAction(2);
-        ForeseableActionMock action2 = createForeseableAction(1);
+        ForeseableAction action1 = createForeseableAction(2);
+        ForeseableAction action2 = createForeseableAction(1);
         Scheduler subScheduler = createScheduler();
         Scheduler scheduler = createScheduler();
         subScheduler.addAction(action1);
