@@ -7,6 +7,7 @@ public abstract class Scheduler extends Action {
     protected boolean isReady = true;
     protected boolean isInitialized = false;
     protected final ArrayList<Action> actions = new ArrayList<Action>();
+    protected abstract Action next ();
     
     public Scheduler () {
         super();
@@ -23,8 +24,15 @@ public abstract class Scheduler extends Action {
     public boolean isFinished () {
         return isInitialized && !isReady() && actions.isEmpty();
     }
-
-    public abstract void doStep ();
+    
+    public void doStep () {
+		isReady = false;
+		Action nextAction = this.next();
+		nextAction.doStep();
+		if (nextAction.isFinished()) {
+			actions.remove(nextAction);
+		}    	
+    }
 
     public void addAction (Action subAction) {
         isInitialized = true;
