@@ -1,5 +1,3 @@
 package action;
 
-public class ActionFinishedException extends Exception {
-
-}
+public class ActionFinishedException extends Exception {}

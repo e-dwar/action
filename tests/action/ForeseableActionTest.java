@@ -32,8 +32,7 @@ public class ForeseableActionTest extends ActionTest {
 
 	@Override
 	protected Action createAction() {
-		// TODO Auto-generated method stub
-		return null;
+		return createForeseableAction(1);
 	}
 
 }

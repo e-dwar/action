@@ -22,7 +22,7 @@ public abstract class SchedulerTest extends ActionTest {
 
 	@Override
 	protected Action createAction() {
-		return createScheduler();
+		return createScheduler(createForeseableAction(1));
 	}
 	
 	@Test
