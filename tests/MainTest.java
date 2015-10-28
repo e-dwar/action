@@ -77,7 +77,7 @@ public class MainTest {
 
     @Test
     public void onlyOneValidStateAtEachMomentForScheduler() throws ActionFinishedException {
-    	SequentialScheduler scheduler = createScheduler();
+        SequentialScheduler scheduler = createScheduler();
         scheduler.addAction(createForeseableAction(1));
         onlyOneValidStateAtEachMoment(scheduler);
     }

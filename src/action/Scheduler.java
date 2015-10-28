@@ -26,13 +26,13 @@ public abstract class Scheduler extends Action {
     }
     
     public void doStep () throws ActionFinishedException {
-    	super.doStep();
-		isReady = false;
-		Action nextAction = next();
-		nextAction.doStep();
-		if (nextAction.isFinished()) {
-			actions.remove(nextAction);
-		}    	
+        super.doStep();
+        isReady = false;
+        Action nextAction = next();
+        nextAction.doStep();
+        if (nextAction.isFinished()) {
+            actions.remove(nextAction);
+        }
     }
 
     public void addAction (Action subAction) {

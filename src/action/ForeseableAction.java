@@ -19,7 +19,7 @@ public class ForeseableAction extends Action {
     }
 
     public void doStep () throws ActionFinishedException {
-    	super.doStep();
+        super.doStep();
         remainingTime--;
     }
 }

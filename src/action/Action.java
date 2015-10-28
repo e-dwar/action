@@ -6,9 +6,9 @@ public abstract class Action {
     public abstract boolean isFinished ();
     
     public void doStep () throws ActionFinishedException {
-    	if (isFinished()) {
-    		throw new ActionFinishedException();
-    	}
+        if (isFinished()) {
+            throw new ActionFinishedException();
+        }
     }
 
     public boolean isInProgress () {

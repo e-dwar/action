@@ -25,14 +25,14 @@ public class ForeseableActionTest extends ActionTest {
         assertTrue(action.isFinished());
     }
 
-	@Test
+    @Test
     public void onlyOneValidStateAtEachMoment() throws ActionFinishedException {
         this.onlyOneValidStateAtEachMoment1(createForeseableAction(10));
     }
 
-	@Override
-	protected Action createAction() {
-		return createForeseableAction(1);
-	}
+    @Override
+    protected Action createAction() {
+        return createForeseableAction(1);
+    }
 
 }

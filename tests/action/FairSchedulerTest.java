@@ -4,10 +4,10 @@ import static org.junit.Assert.assertTrue;
 
 public class FairSchedulerTest extends SchedulerTest {
 
-	@Override
-	protected Scheduler createScheduler() {
-		return new FairScheduler();
-	}
+    @Override
+    protected Scheduler createScheduler() {
+        return new FairScheduler();
+    }
 
     public void schedulerStep2() {
         assertTrue(action1.isInProgress());
